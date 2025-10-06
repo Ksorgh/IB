@@ -21,6 +21,15 @@ sudo chmod o+t <имя папки>
 Папки с установленным t-битом запрещают удаление файлов всем кроме владельцев
 при этом при разрешении на запись можно удалить любую информацию, находящуюся внутри такого файла.
 sudo chmod o+t Fold3
+touch Fold3/test_tbit.txt
+stat Fold3/test_tbit.txt
+0664/rw-rw-rw-- UID student/1000 GID group1
+newgrp group1
+cat > test_tbit.txt
+Файл доступен для записи
+rm test_tbit.txt
+Сообщение от команды rm:
+rm: cannot remove 'test_tbit.txt' Permission denied
 
 Пример доступа к папке с t-битом:
 1775/rwxrwxr-t
@@ -33,3 +42,4 @@ stat Fold4
 mkdir Fold4/Test_gt
 stat Fold4/Test_gt
 2775/rwxrwsr-x
+
